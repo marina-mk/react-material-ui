@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    image: marinamk/react-material-ui
+    ports:
+      - "8000:80"
