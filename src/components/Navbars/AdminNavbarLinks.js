@@ -1,5 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
+import { withRouter } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -23,10 +25,11 @@ import styles from "assets/jss/material-dashboard-react/components/headerLinksSt
 
 const useStyles = makeStyles(styles);
 
-export default function AdminNavbarLinks() {
+const AdminNavbarLinks = ({ history }) => {
   const classes = useStyles();
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
+
   const handleClickNotification = event => {
     if (openNotification && openNotification.contains(event.target)) {
       setOpenNotification(null);
@@ -34,9 +37,11 @@ export default function AdminNavbarLinks() {
       setOpenNotification(event.currentTarget);
     }
   };
+
   const handleCloseNotification = () => {
     setOpenNotification(null);
   };
+
   const handleClickProfile = event => {
     if (openProfile && openProfile.contains(event.target)) {
       setOpenProfile(null);
@@ -44,9 +49,16 @@ export default function AdminNavbarLinks() {
       setOpenProfile(event.currentTarget);
     }
   };
+
   const handleCloseProfile = () => {
     setOpenProfile(null);
   };
+
+  const handleLoginClick = () => {
+    setOpenProfile(null);
+    history.push("/admin/login");
+  };
+
   return (
     <div>
       <div className={classes.searchWrapper}>
@@ -207,6 +219,12 @@ export default function AdminNavbarLinks() {
                     </MenuItem>
                     <Divider light />
                     <MenuItem
+                      onClick={handleLoginClick}
+                      className={classes.dropdownItem}
+                    >
+                      Login
+                    </MenuItem>
+                    <MenuItem
                       onClick={handleCloseProfile}
                       className={classes.dropdownItem}
                     >
@@ -221,4 +239,12 @@ export default function AdminNavbarLinks() {
       </div>
     </div>
   );
-}
+};
+
+AdminNavbarLinks.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+};
+
+export default withRouter(AdminNavbarLinks);
