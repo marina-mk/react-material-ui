@@ -41,14 +41,16 @@ export default function Admin({ ...rest }) {
   // styles
   const classes = useStyles();
 
-  const theme = useMemo(() =>
-    createMuiTheme({
-      palette: {
-        primary: {
-          main: "#ab47bc"
+  const theme = useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          primary: {
+            main: "#ab47bc"
+          }
         }
-      }
-    })
+      }),
+    []
   );
 
   // ref to help us initialize PerfectScrollbar on windows devices
