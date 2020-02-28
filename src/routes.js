@@ -24,7 +24,6 @@ import BubbleChart from "@material-ui/icons/BubbleChart";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
 // core components/views for Admin layout
-import Login from "views/Login/Login";
 import DashboardPage from "views/Dashboard/Dashboard";
 import UserProfile from "views/UserProfile/UserProfile";
 import TableList from "views/TableList/TableList";
@@ -32,13 +31,14 @@ import Typography from "views/Typography/Typography";
 import Icons from "views/Icons/Icons";
 import Maps from "views/Maps/Maps";
 import NotificationsPage from "views/Notifications/Notifications";
+import LoginForm from "views/Login/LoginForm";
 
 const dashboardRoutes = [
   {
     path: "/login",
     name: "Login Form",
     icon: LockOutlinedIcon,
-    component: Login,
+    component: LoginForm,
     layout: "/admin"
   },
   {
