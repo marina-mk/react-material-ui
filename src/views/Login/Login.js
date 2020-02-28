@@ -13,29 +13,25 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles(theme => {
-  console.log(theme);
-
-  return {
-    paper: {
-      marginTop: 8,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center"
-    },
-    avatar: {
-      margin: 10,
-      backgroundColor: theme.palette.primary.main
-    },
-    form: {
-      width: "100%",
-      marginTop: 10
-    },
-    submit: {
-      margin: "20px 0"
-    }
-  };
-});
+const useStyles = makeStyles(theme => ({
+  paper: {
+    marginTop: 8,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  avatar: {
+    margin: 10,
+    backgroundColor: theme.palette.primary.main
+  },
+  form: {
+    width: "100%",
+    marginTop: 10
+  },
+  submit: {
+    margin: "20px 0"
+  }
+}));
 
 const Copyright = () => {
   return (
