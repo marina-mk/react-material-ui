@@ -5,8 +5,6 @@ import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// view components
-import Login from "views/Login/Login";
 // core components
 import Navbar from "components/Navbars/Navbar.js";
 import Footer from "components/Footer/Footer.js";
@@ -33,7 +31,6 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Route path="/admin/login" component={Login} />
     <Redirect from="/admin" to="/admin/dashboard" />
   </Switch>
 );
