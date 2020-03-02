@@ -15,6 +15,8 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { connect } from 'react-redux';
+import * as mapDispatchToProps from 'actions';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -49,7 +51,7 @@ const Copyright = () => {
   );
 };
 
-const LoginForm = () => {
+const LoginForm = ({ submitAuthData }) => {
   const classes = useStyles();
 
   return (
@@ -63,12 +65,15 @@ const LoginForm = () => {
           Sign in
         </Typography>
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: '', password: '', remember: false }}
           validationSchema={Yup.object().shape({
             email: Yup.string().email().required('Email is required'),
             password: Yup.string().required('Password is required'),
           })}
-          onSubmit={values => { console.log(values); }}
+          onSubmit={(values, { resetForm }) => {
+            submitAuthData(values);
+            resetForm();
+          }}
           render={({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
             <form onSubmit={handleSubmit} className={classes.form} noValidate>
               <TextField
@@ -104,7 +109,13 @@ const LoginForm = () => {
                 autoComplete="current-password"
               />
               <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
+                control={<Checkbox
+                  name="remember"
+                  checked={values.remember}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  color="primary"
+                  />}
                 label="Remember me"
               />
               <Button
@@ -140,6 +151,7 @@ const LoginForm = () => {
 };
 
 LoginForm.propTypes = {
+  submitAuthData: PropTypes.func.isRequired
 };
 
-export default LoginForm;
+export default connect(null, mapDispatchToProps)(LoginForm);
