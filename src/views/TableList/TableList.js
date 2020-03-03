@@ -8,6 +8,7 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import BarChart from "components/Graphic/BarChart";
 
 const styles = {
   cardCategoryWhite: {
@@ -45,6 +46,19 @@ export default function TableList() {
   const classes = useStyles();
   return (
     <GridContainer>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>D3.js graphic</h4>
+            <p className={classes.cardCategoryWhite}>
+              Data visualization using React D3.js lib
+            </p>
+          </CardHeader>
+          <CardBody>
+            <BarChart />
+          </CardBody>
+        </Card>
+      </GridItem>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
