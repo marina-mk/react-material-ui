@@ -90,7 +90,6 @@ const LoginForm = ({ submitAuthData }) => {
                 id="email"
                 label="Email Address"
                 autoComplete="email"
-                autoFocus
               />
               <TextField
                 name="password"
