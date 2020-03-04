@@ -9,6 +9,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import BarChart from "components/Graphic/BarChart";
+import DonutChart from "components/Graphic/DonutChart";
 
 const styles = {
   cardCategoryWhite: {
@@ -49,7 +50,20 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>D3.js graphic</h4>
+            <h4 className={classes.cardTitleWhite}>Donut Chart graphic</h4>
+            <p className={classes.cardCategoryWhite}>
+              Data visualization using React D3.js lib
+            </p>
+          </CardHeader>
+          <CardBody>
+            <DonutChart />
+          </CardBody>
+        </Card>
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Bar Chart graphic</h4>
             <p className={classes.cardCategoryWhite}>
               Data visualization using React D3.js lib
             </p>
